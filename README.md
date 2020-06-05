@@ -8,6 +8,7 @@ python test
 - pip3 install requests 
 - pip3 install websocket 
 - pip3 install websocket_client
+- pip3 install matplotlib
 
 - numpy 库,用于创建 矩阵、向量、etc
 - pandas 库，华尔街这帮人搞出来的库
