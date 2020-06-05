@@ -20,7 +20,7 @@ if __name__ == "__main__" :
     x_names  = [  "4.14" ,"4.15"  , "4.16" , "4.17"   ]
     x_values = [  20     ,19      , 20     , 22      ]
 
-
+    # plt.plot(range(5), range(5), range(5) ,  range(8, 13) )
     plt.plot( x_names , x_values , 'ro')
     plt.axis([0, 6, 0, 40  ])
     plt.show()
