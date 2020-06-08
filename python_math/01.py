@@ -1,5 +1,6 @@
 # coding=utf-8
 # 本福特定律
+# py2
 
 import matplotlib.pyplot as plt
 
