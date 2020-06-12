@@ -12,3 +12,8 @@ print( version )
 p = tf.__path__
 
 print( p )
+
+vv = tf.version
+
+print ("-----")
+print (vv)
