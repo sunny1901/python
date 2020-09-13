@@ -3,8 +3,9 @@ import tensorflow as tf
 
 # demo1
 
-function demo1():
-    tf.disable_v2_behavior()
+def demo1():
+
+    # tf.disable_v2_behavior()
 
     a1 = tf.constant( 1 )
     b1 = tf.constant( 2 )
@@ -18,4 +19,6 @@ function demo1():
     print( sess.run( value ) )
     sess.close()
 
-    ai = ses
+
+demo1()
+
