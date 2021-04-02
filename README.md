@@ -1,4 +1,5 @@
 # python
+
 python test
 
 ## python 常用库
@@ -20,4 +21,12 @@ python test
 - pip install mysql-python
 - pip install PyMySQL
 - pip install mysqlclient
+
+
+## AI
+
+- conda install scikit-learn
+- conda install scipy
+- conda install matplotlib
+
 

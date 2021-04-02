@@ -19,6 +19,7 @@ numpy.zeros(shape,
             order = 'C'
 )
 """
+
 print( info )
 arr = np.zeros( 5 )
 print( ".zerors 默认浮点类型" , arr )
