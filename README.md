@@ -4,10 +4,10 @@ python test
 
 ## python 常用库
 
-- pip3 install redis 
-- pip3 install pymysql 
-- pip3 install requests 
-- pip3 install websocket 
+- pip3 install redis
+- pip3 install pymysql
+- pip3 install requests
+- pip3 install websocket
 - pip3 install websocket_client
 - pip3 install matplotlib
 
@@ -18,15 +18,13 @@ python test
 - matplotlib
 
 ## mysql 相关库
+
 - pip install mysql-python
 - pip install PyMySQL
 - pip install mysqlclient
-
 
 ## AI
 
 - conda install scikit-learn
 - conda install scipy
 - conda install matplotlib
-
-
