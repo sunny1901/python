@@ -1,11 +1,8 @@
 import numpy as np
 
 """
-数组创建
-"""
+numpy 创建【数组】
 
-"""
-数组创建
 
 numpy.array(
         object, 
