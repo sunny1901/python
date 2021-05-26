@@ -31,8 +31,6 @@ print( "【特征数据】" , len(loaded_data.data) )
 print( "【目标数据】" , len(loaded_data.target) )
 
 print("--摘要---")
-print( (loaded_data.DESCR) )
-print( (loaded_data.target) )
 
 print("---------")
 
