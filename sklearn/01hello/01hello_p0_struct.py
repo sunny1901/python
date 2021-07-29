@@ -25,3 +25,5 @@ model.fit( data_X , data_y)
 # 利用模型，对新数据，进行预测，与原标签进行比较
 print(model.predict(data_X[:4,:]))
 print(data_y[:4]) 
+
+ 
