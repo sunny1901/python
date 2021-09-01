@@ -1,9 +1,11 @@
 import numpy as np
 
-
-info = """
-# .shape 数组的矩阵结构 , 矩阵变换
 """
+数组变换
+# .shape  变换属性，数组的矩阵结构 , 矩阵变换
+# .reshape 变换函数
+"""
+
 
 arr = np.array([3])
 print("维度" ,arr.ndim  , arr)
