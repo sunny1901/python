@@ -23,4 +23,3 @@ print(b)
 b  = pd.Series(sites , index=[1,2] , name='RUNOOB-Series-')
 print(b)
 
- 
