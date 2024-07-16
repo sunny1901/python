@@ -1,0 +1,175 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import pymysql
+
+# MySQL 数据库连接参数
+db_config = {
+    'host': '10.1.23.10',
+    'port': '3306',
+    'db_name': 'e_contract_test',
+    'username': 'e_contract_user',
+    'passwd': 'e_contract_123456'
+}
+
+class MysqlFactory:
+
+    # 初始化方法
+    # def __init__(self, host, port, user, passwd, dbName, charsets):
+    #     self.host = host
+    #     self.port = port
+    #     self.user = user
+    #     self.passwd = passwd
+    #     self.dbName = dbName
+    #     self.charsets = charsets
+
+    def __init__(self, _config = db_config  ):
+        self.host = _config.host
+        self.port = _config.port
+        self.user = _config.user
+        self.passwd = _config.passwd
+        self.db_name = _config.db_name
+        # self.charsets = _config.charsets
+
+
+        # 链接数据库
+    def connection(self):
+        self.db = pymysql.connect(
+            host=self.host,
+            port=self.port,
+            user=self.user,
+            passwd=self.passwd,
+            db=self.db_name,
+            # charset=self.charsets
+            cursorclass=pymysql.cursors.DictCursor
+        )
+        self._cursor = self.db.cursor()
+
+        # 连接配置信息
+        # config = {
+        #     'host': self.host,
+        #     'port': self.port,
+        #     'user': self.user,
+        #     'password': self.passwd,
+        #     'db': self.db_name,
+        #     'charset': 'utf8mb4',
+        #     'cursorclass': pymysql.cursors.DictCursor,
+        # }
+        # # 创建连接
+        # self.db = pymysql.connect(**config)
+        # self._cursor = self.db.cursor()
+
+
+    # 关闭链接
+    def close(self):
+        try:
+            self._cursor.close()
+            self.db.close()
+        except BaseException as e:
+            print("数据库关闭失败！")
+            print(str(e))
+
+
+    # 插入数据
+    def insert(self, sql):
+        count = 0
+        try:
+            self.connection()
+            count = self._cursor.execute(sql)
+            self.db.commit()
+            self.close()
+        except BaseException as e:
+            print("MysqlDao insert() 操作失败！: \n" + sql  + "\n")
+            self.db.rollback()
+            print( e )
+        return count
+
+    # 删除数据
+    def delete(self, sql):
+        return self.insert(sql)
+
+    # 更新数据
+    def update(self, sql):
+        return self.insert(sql)
+
+
+    # 查询列表数据
+    def query(self, sql):
+        res = None
+        try:
+            self.connection()
+            self._cursor.execute(sql)
+            res = self._cursor.fetchall()
+            self.close()
+        except BaseException as e:
+            print("MysqlDao 查询失败！")
+            print(str(e))
+
+        if isinstance(res, tuple):
+            if len(res) == 0 :
+                return None
+        return res
+
+    # 查询单行记录
+    def get(self, sql):
+        print( sql )
+        res = None
+        try:
+            # res = self.cursor.fetchone()
+            self.connection()
+            self._cursor.execute(sql)
+            res = self._cursor.fetchone()
+
+            if res is None:
+                return None
+
+            if isinstance(res, tuple):
+                if len(res) == 0:
+                    return None
+
+            return res[0]
+        except BaseException as e:
+            print("MysqlDao.get() 查询失败  ")
+            print(str(e))
+        return res
+
+    def databaseVersion(self) :
+        data = self.query("select version()")
+        print (data)
+
+
+    def columns_info(self,colums_str):
+        # cols = "result_id, task_id, title, tags, content, mark1, mark2, mark3, remark, status"
+        arr = colums_str.split(",")
+        str1 = ""
+        str2 = ""
+        str3 = ""
+        cols_list = []
+        for i in range(len(arr)):
+            column_name = arr[i].strip();
+            print(i , column_name)
+            cols_list.append( column_name)
+            if i == 0:
+                str1 = str1 + "'{" + str(i) + "}'"
+                str2 = str2 + "row['" + column_name + "']"
+            else:
+                str1 = str1 + ",'{" + str(i) + "}'"
+                str2 = str2 + ", row['" + column_name + "']"
+
+            str3 = str3 + "row['" + column_name + "']=" + str(i)  + "\n"
+        # print(str1)
+        # print(str2)
+        # print(str3)
+        return str1, str2 ,cols_list
+
+    def columns_val(self, cols , row):
+        vals = ""
+        for i in range(len(cols)):
+            key = cols[i]
+            value = str(row[key])
+            value = value.replace("\"", '&quot;')
+            if i == 0:
+                vals = "\"" + value + "\""
+            else:
+                vals = vals + ",\"" + value + "\""
+        return vals

@@ -1,0 +1,14 @@
+App,Role,DubboService,-
+None,configurators,cn.com.sinosafe.claim.ZBCFservice.service.ZBCFSmsService,ÒÑÇ¨ÒÆ
+None,configurators,com.sinosafe.payment.service.InstalmentsPaymentPLanService,-
+None,configurators,com.core.application.interact.dubbo.provider.mobile.Claim2MobileFacade,-
+None,configurators,com.core.application.interact.dubbo.provider.vehicle.IVehcomClaimService,-
+None,configurators,com.core.application.interact.dubbo.provider.repair.GcRepairDubService,-
+None,configurators,com.sinosafe.bpm.dubbo.service.BPM_Service,-
+None,configurators,com.sinosafe.bpm.dubbo.service.Test_Service,-
+None,configurators,com.core.application.interact.dubbo.GcCommonDubService,-
+None,configurators,cn.com.sinosafe.claim.newcore.service.ClmMidPlatService,-
+None,configurators,com.core.application.interact.dubbo.provider.PCS.PCSInterFacade.Claim2PCSInterFacade,-
+None,configurators,com.core.application.interact.dubbo.provider.videoSurvey.vsInterFacade.Claim2vsFacade,-
+None,configurators,cn.com.sinosafe.claim.ZBCFservice.service.ZBCFCenterService,ÒÑÇ¨ÒÆ
+None,configurators,cn.com.sinosafe.claim.newcore.service.ClmRegistPlatService,-

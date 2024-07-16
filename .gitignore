@@ -1,32 +1,32 @@
-.idea
-# python
+Here's a basic Python-specific .gitignore file:
+Copy# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
 
-venv
+# Virtual environments
+venv/
+env/
+.env
 
-# VSCode ##################################
+# IDE-specific files
 .vscode/
+.idea/
 
+# Logs
+*.log
 
-# Eclipse ##################################
-.settings/
-logs/
-.project
-*.project
-**/.project
- 
+# Temporary files
+*.tmp
 
-# IntelliJ ##################################
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
 
-*.iml
-target  
+# Jupyter Notebook
+.ipynb_checkpoints
 
- 
-
- 
- 
-# maven
-**/target/
-
-
-
-*.DS_Store
+# Operating system files
+.DS_Store
+Thumbs.db
